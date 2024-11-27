@@ -1,0 +1,8 @@
+path:   # dataset root dir
+train:  # train images (relative to 'path') 118287 images
+val:   # val images (relative to 'path') 5000 images
+test:  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+
+nc: 6
+# Classes
+names: ["BrokenEnd", "CottonBall", "Misdraw", "Reediness", "ThickPlace", "ThinPlace"]
