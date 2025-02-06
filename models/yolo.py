@@ -301,20 +301,6 @@ class ClassificationModel(BaseModel):
 def parse_model(d, ch):  # model_dict, input_channels(3)
     # Parse a YOLOv5 model.yaml dictionary
     import ast
-
-    #######
-     # Args
-    max_channels = float("inf")
-    nc, act, scales = (d.get(x) for x in ("nc", "activation", "scales"))
-    depth, width, kpt_shape = (d.get(x, 1.0) for x in ("depth_multiple", "width_multiple", "kpt_shape"))
-    if scales:
-        scale = d.get("scale")
-        if not scale:
-            scale = tuple(scales.keys())[0]
-            LOGGER.warning(f"WARNING ⚠️ no model scale passed. Assuming scale='{scale}'.")
-        depth, width, max_channels = scales[scale]
-    ############
-
     LOGGER.info(f"\n{'':>3}{'from':>18}{'n':>3}{'params':>10}  {'module':<40}{'arguments':<30}")
     anchors, nc, gd, gw, act = d['anchors'], d['nc'], d['depth_multiple'], d['width_multiple'], d.get('activation')
     if act:
@@ -333,21 +319,14 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
         n = n_ = max(round(n * gd), 1) if n > 1 else n  # depth gain
         if m in {
                 Conv, GhostConv, Bottleneck, GhostBottleneck, SPP, SPPF, DWConv, MixConv2d, Focus, CrossConv,
-                BottleneckCSP, C3, C3TR, C3SPP, C3Ghost, nn.ConvTranspose2d, DWConvTranspose2d, C3x,
-                ADown, C3_LS}:
-            
+                BottleneckCSP, C3, C3TR, C3SPP, C3Ghost, nn.ConvTranspose2d, DWConvTranspose2d, C3x}:
             c1, c2 = ch[f], args[0]
             if c2 != no:  # if not output
                 c2 = make_divisible(c2 * gw, 8)
             args = [c1, c2, *args[1:]]
-            if m in {BottleneckCSP, C3, C3TR, C3Ghost, C3x, C3_LS}:
+            if m in {BottleneckCSP, C3, C3TR, C3Ghost, C3x}:
                 args.insert(2, n)  # number of repeats
                 n = 1
-            ########extral start#######
-            if m in ():
-                args[2] = make_divisible(min(args[2], max_channels) * width, 8)
-                args[3] = make_divisible(min(args[3], max_channels) * width, 8)
-            ######
         elif m is nn.BatchNorm2d:
             args = [ch[f]]
         elif m is Concat:
@@ -363,19 +342,6 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
             c2 = ch[f] * args[0] ** 2
         elif m is Expand:
             c2 = ch[f] // args[0] ** 2
-        ##################################
-        elif m is MCAM:
-            c1 = [ch[x] for x in f]
-            c2 = int(c1[1] * 0.5 * 3)
-            args = [c1, *args]
-        ##################################
-        elif m in {ELA
-                   }:
-            c2 = ch[f]
-            args = [c2, *args]
-            # print(args)
-        #-----------END----------------
-        
         else:
             c2 = ch[f]
 
@@ -394,7 +360,7 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--cfg', type=str, default='/data/Yyt/code/yuanshi-yolov5-7.0/models/yolov5s-PDN-Star-ECA.yaml', help='model.yaml')
+    parser.add_argument('--cfg', type=str, default='', help='model.yaml')
     parser.add_argument('--batch-size', type=int, default=1, help='total batch size for all GPUs')
     parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
     parser.add_argument('--profile', action='store_true', help='profile model speed')
