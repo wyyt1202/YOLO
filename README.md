@@ -8,6 +8,24 @@ The proposed MCF-Net framework is aligned with YOLOv5 and comprises three main c
 
 ![The overall architecture of MCF-Net](models/images/Fig1.png)
 
+## <div align="center">Multi-scale context aggregation module(MCAM)</div>
+
+![Multi-scale context aggregation module](models/images/Fig2.png)
+
+This module takes multi-scale feature maps as input and effectively utilizes the strengths of each scale to capture global contextual information. Additionally, residual structures are incorporated to preserve and utilize the original feature information across multiple levels, thereby improving both the training efficiency and the detection performance of the model.
+
+
+@inproceedings{bib34,
+  title={Yolov9: Learning what you want to learn using programmable gradient information},
+  author={Wang, Chien-Yao and Yeh, I-Hau and Mark Liao, Hong-Yuan},
+  booktitle={European Conference on Computer Vision},
+  pages={1--21},
+  year={2025},
+  organization={Springer}
+}
+
+## <div align="center">Multi-scale context aggregation module(MCAM)</div>
+
 ## Comprehensive comparison with other models on the FD6052 dataset
 | Models            | Precision (%) | Recall (%) | mAP50 (%) | mAP95 (%) | Params (M) | GFLOPS |
 |-------------------|---------------|------------|-----------|-----------|------------|--------|
