@@ -132,8 +132,8 @@ python val.py --weights MCF-Net.pt --data ../datasets/fabric.yaml --img 640  # v
 ```
 
 <details open>
-<summary>Train</summary>
-
+<summary>Train with train.py</summary>
+Training with `train.py`
 ### Single-GPU
 `python train.py --model MCF-Net.yaml --epochs 5 --img 640 --batch 32 --data ../datasets/fabric.yaml`
 
@@ -141,8 +141,8 @@ python val.py --weights MCF-Net.pt --data ../datasets/fabric.yaml --img 640  # v
 `python -m torch.distributed.run --nproc_per_node 4 --master_port 1 train.py --model MCF-Net.yaml --epochs 5 --img 640 --device 0,1,2,3 --data ../datasets/fabric.yaml`
 </details>
 
-<details>
-<summary>Val with val.py</summary>
+<details open>
+<summary>Validate with val.py</summary>
 
 `val.py` runs on a validation set and saving results to `runs/val`.
 ```
@@ -150,7 +150,7 @@ python val.py --weights MCF-Net.pt --img 640 --batch 32 --data ../datasets/fabri
 ```
 </details>
 
-<details>
+<details open>
 <summary>Inference with detect.py</summary>
 
 `detect.py` runs inference on a variety of sources and saving results to `runs/detect`.
