@@ -126,7 +126,6 @@ pip install -r requirements.txt  # install
 ```
 </details>
 
-## 
 ```
 python val.py --weights MCF-Net.pt --data ../datasets/fabric.yaml --img 640  # validate
 ```
@@ -136,10 +135,10 @@ python val.py --weights MCF-Net.pt --data ../datasets/fabric.yaml --img 640  # v
   
 Training with `train.py` and saving results to `runs/train`.
 
-### Single-GPU
+Single-GPU
 `python train.py --model MCF-Net.yaml --epochs 5 --img 640 --batch 32 --data ../datasets/fabric.yaml`
 
-### Multi-GPU DDP
+Multi-GPU DDP
 `python -m torch.distributed.run --nproc_per_node 4 --master_port 1 train.py --model MCF-Net.yaml --epochs 5 --img 640 --device 0,1,2,3 --data ../datasets/fabric.yaml`
 </details>
 
