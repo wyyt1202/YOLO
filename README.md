@@ -113,11 +113,13 @@ The module initiates by partitioning the original features into two parts along 
 
 <details open>
 <summary>Install</summary>
-  
+
 ```bash
 git clone https://github.com/wyyt1202/MCF-Net  # clone
 cd MCF-Net
 pip install -r requirements.txt  # install
+
+</details>
 
 <details>
 <summary>Inference</summary>
@@ -137,3 +139,6 @@ results = model(img)
 # Results
 results.print()  # or .show(), .save(), .crop(), .pandas(), etc.
 ```
+
+</details>
+
