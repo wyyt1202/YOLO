@@ -118,6 +118,7 @@ The module initiates by partitioning the original features into two parts along 
 git clone https://github.com/wyyt1202/MCF-Net  # clone
 cd MCF-Net
 pip install -r requirements.txt  # install
+```
 </details>
 
 <details>
