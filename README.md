@@ -133,10 +133,6 @@ pip install -r requirements.txt  # install
 ```
 </details>
 
-```
-python val.py --weights MCF-Net.pt --data ../datasets/fabric.yaml --img 640  # validate
-```
-
 <details open>
 <summary>Train with train.py</summary>
   
