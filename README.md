@@ -117,7 +117,7 @@ TianChi dataset can be downloaded from https://tianchi.aliyun.com/dataset/79336.
 
 DAGM2007 dataset can be downloaded from https://hci.iwr.uni-heidelberg.de/content/weakly-supervised-learning-industrial-optical-inspection.
 
-
+## <div align="center">Documentation</div>
 
 <details open>
 <summary>Install</summary>
