@@ -126,23 +126,27 @@ pip install -r requirements.txt  # install
 ```
 </details>
 
+## 
+```
+python val.py --weights MCF-Net.pt --data ../datasets/fabric.yaml --img 640  # validate
+```
+
 <details open>
-<summary>Inference</summary>
+<summary>Train</summary>
 
-```python
-import torch
+### Single-GPU
+`python train.py --model MCF-Net.yaml --epochs 5 --img 640 --batch 32 --data ../datasets/fabric.yaml`
 
-# Model
-model = torch.hub.load('models', 'MCF-Net')  # or yolov5n - yolov5x6, custom
+### Multi-GPU DDP
+`python -m torch.distributed.run --nproc_per_node 4 --master_port 1 train.py --model MCF-Net.yaml --epochs 5 --img 640 --device 0,1,2,3 --data ../datasets/fabric.yaml`
+</details>
 
-# Images
-img = './images'  # or file, Path, PIL, OpenCV, numpy, list
+<details>
+<summary>Val with val.py</summary>
 
-# Inference
-results = model(img)
-
-# Results
-results.print()  # or .show(), .save(), .crop(), .pandas(), etc.
+`val.py` runs on a validation set and saving results to `runs/val`.
+```
+python val.py --weights MCF-Net.pt --img 640 --batch 32 --data ../datasets/fabric.yaml
 ```
 </details>
 
