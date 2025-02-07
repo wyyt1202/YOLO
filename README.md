@@ -25,11 +25,11 @@ The MCD-FPN employs an early fusion strategy: it uses the MCAM module at the int
 ## <div align="center">Feature extraction based on high-dimensional spatial mapping(C3-LS)</div>
 The module initiates by partitioning the original features into two parts along the channel dimension using two 1×1 convolutional layers. One part is passed through the LS-Bottleneck module for feature extraction, while the other part functions as a constant mapping that is subsequently fused with the output of the LS-Bottleneck. Finally, a 1×1 convolutional layer is applied to modulate the channel dimensions of the feature map and facilitate inter-channel information exchange.
 
-### The C3-LS structure
+### <div align="center">The C3-LS structure</div>
 
 ![MCD-FPN](models/images/Fig5.png)
 
-### LS-Bottleneck
+### <div align="center">LS-Bottleneck</div>
 
 ![MCD-FPN](models/images/Fig6.png)
 
