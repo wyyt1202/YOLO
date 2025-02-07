@@ -133,7 +133,9 @@ python val.py --weights MCF-Net.pt --data ../datasets/fabric.yaml --img 640  # v
 
 <details open>
 <summary>Train with train.py</summary>
-Training with `train.py`
+  
+Training with `train.py` and saving results to `runs/train`.
+
 ### Single-GPU
 `python train.py --model MCF-Net.yaml --epochs 5 --img 640 --batch 32 --data ../datasets/fabric.yaml`
 
