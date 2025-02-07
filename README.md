@@ -2,13 +2,13 @@
 
 This repository is a PyTorch implementation of our paper: Enhancing Multi-Scale Fabric Defect Detection with MCF-Net: A Context Fusion Approach.
 
-## <div align="center">The overall architecture of MCF-Net</div>
+## The overall architecture of MCF-Net
 
 The proposed MCF-Net framework is aligned with YOLOv5 and comprises three main components: the backbone, the neck, and the head. In the backbone, the C3-LS module is employed to enhance the model's feature extraction capability, while the ELA attention mechanism is incorporated before the SPPF module to enable the model to focus more effectively on feature representations within the target region. In the neck, the MCAM module captures the global contextual information of multi-scale features, and the MCD-FPN structure extends the outputs of MCAM to both low-level and high-level features, establishing long-range dependencies between defect features and their surrounding background across various detection scales. Finally, the features fused by the MCD-FPN are utilized for prediction in the head module.
 
 ![The overall architecture of MCF-Net](models/images/Fig1.png)
 
-## <div align="center">Multi-scale context aggregation module(MCAM)</div>
+## Multi-scale context aggregation module(MCAM)
 
 This module takes multi-scale feature maps as input and effectively utilizes the strengths of each scale to capture global contextual information. Additionally, residual structures are incorporated to preserve and utilize the original feature information across multiple levels, thereby improving both the training efficiency and the detection performance of the model.
 
@@ -17,19 +17,19 @@ This module takes multi-scale feature maps as input and effectively utilizes the
 
 ![Multi-scale context aggregation module](models/images/Fig2.png)
 
-## <div align="center">Multi-scale context diffusion fusion pyramid network(MCD-FPN)</div>
+## Multi-scale context diffusion fusion pyramid network(MCD-FPN)
 The MCD-FPN employs an early fusion strategy: it uses the MCAM module at the intermediate scale C_4 to first fuse multi-scale features, which are subsequently propagated to both shallow and deep layers. During this process, the shallow and deep features are interactively fused with the multi-scale features captured by the MCAM, effectively avoiding information loss or degradation during multilevel transmission.
 
 ![MCD-FPN](models/images/Fig4.png)
 
-## <div align="center">Feature extraction based on high-dimensional spatial mapping(C3-LS)</div>
+## Feature extraction based on high-dimensional spatial mapping(C3-LS)
 The module initiates by partitioning the original features into two parts along the channel dimension using two 1×1 convolutional layers. One part is passed through the LS-Bottleneck module for feature extraction, while the other part functions as a constant mapping that is subsequently fused with the output of the LS-Bottleneck. Finally, a 1×1 convolutional layer is applied to modulate the channel dimensions of the feature map and facilitate inter-channel information exchange.
 
-### <div align="center">The C3-LS structure</div>
+### The C3-LS structure
 
 ![MCD-FPN](models/images/Fig5.png)
 
-### <div align="center">LS-Bottleneck</div>
+### LS-Bottleneck
 
 ![MCD-FPN](models/images/Fig6.png)
 
