@@ -4,6 +4,8 @@ This repository is a PyTorch implementation of our paper: Enhancing Multi-Scale 
 
 <details open>
 <summary>Install</summary>
+  
+```markdown
 ```bash
 git clone https://github.com/wyyt1202/MCF-Net  # clone
 cd MCF-Net
