@@ -2,6 +2,8 @@
 
 This repository is a PyTorch implementation of our paper: Enhancing Multi-Scale Fabric Defect Detection with MCF-Net: A Context Fusion Approach.
 
+![示例图片](models/images/dif1/Fig1.png)
+
 
 ## Comprehensive comparison with other models on the FD6052 dataset
 | Models            | Precision (%) | Recall (%) | mAP50 (%) | mAP95 (%) | Params (M) | GFLOPS |
