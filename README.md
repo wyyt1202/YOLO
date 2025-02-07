@@ -57,6 +57,28 @@ This repository is a PyTorch implementation of our paper: Enhancing Multi-Scale 
 | LiteYOLO-ID         | 96.4          | 98.6       | 98.7      | 62.5      | 3.8        | 9.6    |
 | Ours                | 98.1          | 99.1       | 98.9      | 65.0      | 8.5        | 20.6   |
 
+## Ablation experiments for modules on the FD6052 dataset
+| YOLOv5s | ELA | MCD-FPN (MCAM) | C3-LS | Precision (%) | Recall (%) | mAP50 (%) |
+|----------|-----|----------------|-------|---------------|------------|-----------|
+| √        |     |                |       | 90.5          | 82.2       | 89.6      |
+| √        | √   |                |       | 88.9          | 84.7       | 90.2      |
+| √        |     | √              |       | 92.8          | 87.4       | 92.3      |
+| √        |     |                | √     | 94.0          | 88.7       | 93.7      |
+| √        | √   |                | √     | 93.0          | 89.2       | 93.5      |
+| √        | √   | √              |       | 92.3          | 89.0       | 94.2      |
+| √        |     | √              | √     | 93.3          | 89.1       | 95.0      |
+| √        | √   | √              | √     | 94.1          | 90.2       | 95.1      |
+
+## Comparison of different pruning methods, where "None" indicates no channel pruning
+| Module              | Method     | Speed_up | mAP50 (%) | mAP95 (%) | Params (M) | GFLOPS |
+|---------------------|------------|----------|-----------|-----------|------------|--------|
+| YOLOv5s             | None       | None     | 89.4      | 48.3      | 7.0        | 15.8   |
+| MCF-Net (Ours)      | None       | None     | 95.1      | 55.5      | 8.5        | 20.6   |
+| MCF-Net-Prune1      | LAMP       | 2.0      | 94.4      | 55.3      | 4.1        | 10.1   |
+| MCF-Net-Prune2      | LAMP-G     | 2.0      | 94.7      | 54.7      | 3.8        | 10.1   |
+| MCF-Net-Prune3      | Group_Norm | 2.0      | 94.3      | 55.2      | 4.1        | 10.1   |
+| MCF-Net-Prune4      | LAMP       | 2.5      | 67.0      | 36.2      | 3.3        | 8.1    |
+
 
 <details open>
 <summary>Install</summary>
