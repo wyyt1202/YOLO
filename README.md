@@ -110,6 +110,13 @@ The module initiates by partitioning the original features into two parts along 
 | MCF-Net-Prune3      | Group_Norm | 2.0      | 94.3      | 55.2      | 4.1        | 10.1   |
 | MCF-Net-Prune4      | LAMP       | 2.5      | 67.0      | 36.2      | 3.3        | 8.1    |
 
+## DataSet
+The FD6052 dataset of this study is open-sourced at https://pan.baidu.com/s/18QDeeVZoMFNvg32Po7qyrg for academic research.
+
+TianChi dataset can be downloaded from https://tianchi.aliyun.com/dataset/79336.
+
+DAGM2007 dataset can be downloaded from https://hci.iwr.uni-heidelberg.de/content/weakly-supervised-learning-industrial-optical-inspection.
+
 
 
 <details open>
