@@ -111,9 +111,14 @@ The module initiates by partitioning the original features into two parts along 
 | MCF-Net-Prune4      | LAMP       | 2.5      | 67.0      | 36.2      | 3.3        | 8.1    |
 
 
+
 <details open>
 <summary>Install</summary>
 
+Clone repo and install [requirements.txt](https://github.com/ultralytics/yolov5/blob/master/requirements.txt) in a
+[**Python>=3.7.0**](https://www.python.org/) environment, including
+[**PyTorch>=1.7**](https://pytorch.org/get-started/locally/).
+  
 ```bash
 git clone https://github.com/wyyt1202/MCF-Net  # clone
 cd MCF-Net
@@ -121,7 +126,7 @@ pip install -r requirements.txt  # install
 ```
 </details>
 
-<details>
+<details open>
 <summary>Inference</summary>
 
 ```python
