@@ -4,9 +4,9 @@ This repository is a PyTorch implementation of our paper: Enhancing Multi-Scale 
 
 ## <div align="center">The overall architecture of MCF-Net</div>
 
-![The overall architecture of MCF-Net](models/images/Fig1.png)
-
 The proposed MCF-Net framework is aligned with YOLOv5 and comprises three main components: the backbone, the neck, and the head. In the backbone, the C3-LS module is employed to enhance the model's feature extraction capability, while the ELA attention mechanism is incorporated before the SPPF module to enable the model to focus more effectively on feature representations within the target region. In the neck, the MCAM module captures the global contextual information of multi-scale features, and the MCD-FPN structure extends the outputs of MCAM to both low-level and high-level features, establishing long-range dependencies between defect features and their surrounding background across various detection scales. Finally, the features fused by the MCD-FPN are utilized for prediction in the head module.
+
+![The overall architecture of MCF-Net](models/images/Fig1.png)
 
 ## Comprehensive comparison with other models on the FD6052 dataset
 | Models            | Precision (%) | Recall (%) | mAP50 (%) | mAP95 (%) | Params (M) | GFLOPS |
