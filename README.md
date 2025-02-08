@@ -12,7 +12,7 @@ The proposed MCF-Net framework is aligned with YOLOv5 and comprises three main c
 
 This module takes multi-scale feature maps as input and effectively utilizes the strengths of each scale to capture global contextual information. Additionally, residual structures are incorporated to preserve and utilize the original feature information across multiple levels, thereby improving both the training efficiency and the detection performance of the model.
 
-### The Addown module can be referenced as follows：
+### The ADown module can be referenced as follows：
 > **Wang, Chien-Yao; Yeh, I-Hau; Mark Liao, Hong-Yuan.** *Yolov9: Learning what you want to learn using programmable gradient information.* In: European Conference on Computer Vision, 2025, pages 1--21. Springer.
 
 ![Multi-scale context aggregation module](models/images/Fig2.png)
